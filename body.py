@@ -15,19 +15,20 @@ body {
 # Inject your custom CSS styles into the Streamlit app
 st.write(f'<style>{styles}</style>', unsafe_allow_html=True)
 st.set_option('deprecation.showPyplotGlobalUse', False)
-st.write("Welcome to Laptop Insights, your source for data-driven analysis of laptop prices and specifications."
-         " Our website provides a variety of insightful visualizations and analyses of laptop data, including scatter plots,"
-         " line plots, and correlation matrices. By analyzing trends in laptop prices, screen types, operating systems, and other variables,"
-         " our website provides valuable insights for consumers and tech enthusiasts alike. Whether you're looking for the perfect laptop for"
-         " work or play, or simply interested in the latest trends in laptop technology, our website has everything you need to stay informed"
-         " and make informed decisions.")
+
 
 # Add more descriptive names for each option
 st.sidebar.title("Choose an Analysis")
-user_input = st.sidebar.selectbox("Select an option", ["Choose Any", "Predict Price using ML Model", "Average Price by Company and Model", "Price vs RAM Scatter Plot", "Price vs Storage Line Plot", "TouchScreen vs Price Bar Chart", "OS vs Average Price Bar Chart"])
+user_input = st.sidebar.selectbox("Select an option", ["Predict Price using ML Model", "Average Price by Company and Model", "Price vs Storage Line Plot"])
 
 db=DB()
 if user_input=="Predict Price using ML Model":
+    st.write("Welcome to Laptop Insights, your source for data-driven analysis of laptop prices and specifications."
+             " Our website provides a variety of insightful visualizations and analyses of laptop data, including scatter plots,"
+             " line plots, and correlation matrices. By analyzing trends in laptop prices, screen types, operating systems, and other variables,"
+             " our website provides valuable insights for consumers and tech enthusiasts alike. Whether you're looking for the perfect laptop for"
+             " work or play, or simply interested in the latest trends in laptop technology, our website has everything you need to stay informed"
+             " and make informed decisions.")
     model()
 elif user_input == "Average Price by Company and Model":
     # Code for generating average price by company and model
